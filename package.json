@@ -1,0 +1,23 @@
+{
+  "name": "sensorsdata-analytics-react-native",
+  "version": "2.3.4",
+  "private": false,
+  "description": "神策分析 RN 组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sensors",
+    "analytics",
+    "神策",
+    "神策分析"
+  ],
+  "author": "chenru",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sensorsdata/react-native-sensors-analytics.git"
+  },
+   "homepage": "https://github.com/sensorsdata/react-native-sensors-analytics"
+}
