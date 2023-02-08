@@ -1,19 +1,19 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNSensorsAnalyticsModule"
-  s.version      = "2.3.4"
-  s.summary      = "The official React Native SDK of Sensors Analytics."
+  s.version      = "1.0.0"
+  s.summary      = "The official React Native SDK of TechLab Track."
   s.description  = <<-DESC
-                  神策分析 RN 组件
+                  techlab track RN 组件
                    DESC
   s.homepage     = "http://www.sensorsdata.cn"
   s.license      = { :type => "Apache License, Version 2.0" }
-  s.author       = { "YuGuo Chen" => "chenyuguo@sensorsdata.cn" }
+  s.author       = { "Wang Chao" => "chao.wang@aswatson.com" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/sensorsdata/react-native-sensors-analytics.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/wangchao3/react-native-techlab-track.git", :tag => "v#{s.version}" }
   s.source_files = "ios/*.{h,m}"
   s.requires_arc = true
   s.dependency   "React"
-  s.dependency   "SensorsAnalyticsSDK", ">= 4.4.6"
+  s.dependency   "SensorsAnalyticsSDK", ">= 1.0.0"
 
 end

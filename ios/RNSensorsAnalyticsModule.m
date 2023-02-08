@@ -1,23 +1,3 @@
-//
-//  RNSensorsAnalyticsModule.m
-//  RNSensorsAnalyticsModule
-//
-//  Created by 肖彦敏 on 2017/4/14.
-//  Copyright © 2017-2021 Sensors Data Co., Ltd. All rights reserved.
-//
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
-//
-//  http://www.apache.org/licenses/LICENSE-2.0
-//
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
-//
-
 #if ! __has_feature(objc_arc)
 #error This file must be compiled with ARC. Either turn on ARC for the project or use -fobjc-arc flag on this file.
 #endif
@@ -32,7 +12,7 @@
 #import "SAReactNativeManager.h"
 #import "SAReactNativeEventProperty.h"
 
-NSString *const kSAReactNativePluginVersion = @"react_native:2.3.4";
+NSString *const kSAReactNativePluginVersion = @"react_native:1.0.0";
 
 @implementation RNSensorsAnalyticsModule
 
@@ -679,7 +659,7 @@ RCT_EXPORT_METHOD(deleteAll){
  *
  * @param anonymousId 当前用户的 anonymousId
  *
- *  RN 中使用示例：（在初始化 SDK 之后立即调用，替换神策分析默认分配的 *匿名 ID*）
+ *  RN 中使用示例：（在初始化 SDK 之后立即调用，替换默认分配的 *匿名 ID*）
  *                   <Button
  *                   title="Button"
  *                   onPress={()=>
@@ -1020,7 +1000,6 @@ RCT_EXPORT_METHOD(isHeatMapEnabledPromise:(RCTPromiseResolveBlock)resolve reject
 
 /**
  * 记录 $AppInstall 事件，用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性。
- * 这是 Sensors Analytics 进阶功能，请参考文档 https://sensorsdata.cn/manual/track_installation.html
  *
  * @param properties 渠道追踪事件的属性
 */

@@ -1,23 +1,21 @@
 {
-  "name": "sensorsdata-analytics-react-native",
-  "version": "2.3.4",
+  "name": "react-native-techlab-track",
+  "version": "1.0.1",
   "private": false,
-  "description": "神策分析 RN 组件",
+  "description": "techlab track RN 组件",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "sensors",
     "analytics",
-    "神策",
-    "神策分析"
+    "techlab"
   ],
-  "author": "chenru",
+  "author": "chao.wang",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sensorsdata/react-native-sensors-analytics.git"
+    "url": "git@github.com:wangchao3/react-native-techlab-track.git"
   },
-   "homepage": "https://github.com/sensorsdata/react-native-sensors-analytics"
+   "homepage": "https://github.com/wangchao3/react-native-techlab-track"
 }

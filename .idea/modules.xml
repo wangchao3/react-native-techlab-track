@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/react-native-techlab-analytic.iml" filepath="$PROJECT_DIR$/.idea/react-native-techlab-analytic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/react-native-techlab-track.iml" filepath="$PROJECT_DIR$/.idea/react-native-techlab-track.iml" />
     </modules>
   </component>
 </project>
