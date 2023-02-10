@@ -84,14 +84,14 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
     return [self viewPropertyWithReactTag:view.reactTag fromViewProperties:viewProperties].clickable;
 }
 
-- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable paramters:(NSDictionary *)paramters {
+- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable parameters:(NSDictionary *)parameters {
     dispatch_async(dispatch_get_main_queue(), ^{
         RCTRootView *rootView = [[SAReactNativeRootViewManager sharedInstance] currentRootView];
-        [self prepareView:reactTag clickable:clickable paramters:paramters rootTag:rootView.reactTag];
+        [self prepareView:reactTag clickable:clickable parameters:parameters rootTag:rootView.reactTag];
     });
 }
 
-- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable paramters:(NSDictionary *)paramters rootTag:(NSNumber *)rootTag {
+- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable parameters:(NSDictionary *)parameters rootTag:(NSNumber *)rootTag {
     if (!clickable || !reactTag) {
         return;
     }
@@ -99,7 +99,7 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
     SAReactNativeViewProperty *viewProperty = [[SAReactNativeViewProperty alloc] init];
     viewProperty.reactTag = reactTag;
     viewProperty.clickable = clickable;
-    viewProperty.properties = paramters;
+    viewProperty.properties = parameters;
     [[SAReactNativeRootViewManager sharedInstance] addViewProperty:viewProperty withRootTag:rootTag];
 }
 

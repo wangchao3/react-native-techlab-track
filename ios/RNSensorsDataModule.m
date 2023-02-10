@@ -45,9 +45,9 @@ RCT_EXPORT_METHOD(trackViewScreen:(NSDictionary *)params) {
  * 兼容旧版本 JSBundle 使用
  *
  */
-RCT_EXPORT_METHOD(saveViewProperties:(NSInteger)reactTag clickable:(BOOL)clickable paramters:(NSDictionary *)paramters) {
+RCT_EXPORT_METHOD(saveViewProperties:(NSInteger)reactTag clickable:(BOOL)clickable parameters:(NSDictionary *)parameters) {
     @try {
-        [[SAReactNativeManager sharedInstance] prepareView:@(reactTag) clickable:clickable paramters:paramters];
+        [[SAReactNativeManager sharedInstance] prepareView:@(reactTag) clickable:clickable parameters:parameters];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -58,13 +58,13 @@ RCT_EXPORT_METHOD(saveViewProperties:(NSInteger)reactTag clickable:(BOOL)clickab
  *
  * @param reactTag  当前控件唯一标识符
  * @param clickable  当前控件可点击状态
- * @param paramters  当前控件自定义参数
+ * @param parameters  当前控件自定义参数
  * @param rootTag  当前 RN 页面的唯一标识
  *
  */
-RCT_EXPORT_METHOD(saveRootViewProperties:(NSInteger)reactTag clickable:(BOOL)clickable paramters:(NSDictionary *)paramters rootTag:(NSInteger)rootTag) {
+RCT_EXPORT_METHOD(saveRootViewProperties:(NSInteger)reactTag clickable:(BOOL)clickable parameters:(NSDictionary *)parameters rootTag:(NSInteger)rootTag) {
     @try {
-        [[SAReactNativeManager sharedInstance] prepareView:@(reactTag) clickable:clickable paramters:paramters rootTag:@(rootTag)];
+        [[SAReactNativeManager sharedInstance] prepareView:@(reactTag) clickable:clickable parameters:parameters rootTag:@(rootTag)];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }

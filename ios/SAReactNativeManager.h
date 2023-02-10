@@ -30,9 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @param reactTag  React Native 分配的唯一标识符
 @param clickable  是否可点击
-@param paramters  自定义属性
+@param parameters  自定义属性
 */
-- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable paramters:(NSDictionary *)paramters;
+- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable parameters:(NSDictionary *)parameters;
 
 /**
 @abstract
@@ -40,10 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @param reactTag  React Native 分配的唯一标识符
 @param clickable  是否可点击
-@param paramters  自定义属性
+@param parameters  自定义属性
 @param rootTag  RCTRootView 的 reactTag
 */
-- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable paramters:(NSDictionary *)paramters rootTag:(NSNumber *)rootTag;
+- (void)prepareView:(NSNumber *)reactTag clickable:(BOOL)clickable parameters:(NSDictionary *)parameters rootTag:(NSNumber *)rootTag;
 
 /**
  @abstract
