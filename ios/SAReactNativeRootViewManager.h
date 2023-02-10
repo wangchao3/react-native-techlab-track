@@ -8,7 +8,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - rootView
 
 /// 防止在缓存 RCTRootView 时, 命中 SA 未初始化的断言
-/// SA SDK 初始化前就创建 RCTRootView --> 加载 SAReactNativeManager --> 调用 - [SensorsAnalyticsSDK ignoreViewType:]
+/// SA SDK 初始化前就创建 RCTRootView --> 加载 SAReactNativeManager --> 调用 - [TechlabTrackSDK ignoreViewType:]
 /// 所以此处使用单例, 不通过 SAReactNativeManager 去缓存 RCTRootView, 避免提前加载 SAReactNativeManager
 + (instancetype)sharedInstance;
 

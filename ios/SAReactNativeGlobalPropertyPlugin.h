@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#if __has_include(<SensorsAnalyticsSDK/SAPropertyPlugin.h>)
-#import <SensorsAnalyticsSDK/SAPropertyPlugin.h>
+#if __has_include(<TechlabTrackSDK/SAPropertyPlugin.h>)
+#import <TechlabTrackSDK/SAPropertyPlugin.h>
 #else
 #import "SAPropertyPlugin.h"
 #endif

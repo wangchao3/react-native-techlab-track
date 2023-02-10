@@ -1,6 +1,6 @@
 
 Pod::Spec.new do |s|
-  s.name         = "RNSensorsAnalyticsModule"
+  s.name         = "RNTechlabTrackModule"
   s.version      = "2.3.4"
   s.summary      = "The official React Native SDK of TechLab Track."
   s.description  = <<-DESC
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source_files = "ios/*.{h,m}"
   s.requires_arc = true
   s.dependency   "React"
-  s.dependency   "SensorsAnalyticsSDK", ">= 4.4.6"
+  s.dependency   "TechlabTrackSDK", ">= 1.0.0"
 
 end

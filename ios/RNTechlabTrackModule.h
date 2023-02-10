@@ -7,7 +7,7 @@
 
 extern NSString *const kSAReactNativePluginVersion;
 
-@interface RNSensorsAnalyticsModule : NSObject<RCTBridgeModule>
+@interface RNTechlabTrackModule : NSObject<RCTBridgeModule>
 
 @end
 

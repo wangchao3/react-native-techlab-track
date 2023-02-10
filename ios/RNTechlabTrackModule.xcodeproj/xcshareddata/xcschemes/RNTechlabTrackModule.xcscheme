@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A18E9FA521A6AB4300A66E41"
-               BuildableName = "libRNSensorsAnalyticsModule.a"
-               BlueprintName = "RNSensorsAnalyticsModule"
-               ReferencedContainer = "container:RNSensorsAnalyticsModule.xcodeproj">
+               BuildableName = "libRNTechlabTrackModule.a"
+               BlueprintName = "RNTechlabTrackModule"
+               ReferencedContainer = "container:RNTechlabTrackModule.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A18E9FA521A6AB4300A66E41"
-            BuildableName = "libRNSensorsAnalyticsModule.a"
-            BlueprintName = "RNSensorsAnalyticsModule"
-            ReferencedContainer = "container:RNSensorsAnalyticsModule.xcodeproj">
+            BuildableName = "libRNTechlabTrackModule.a"
+            BlueprintName = "RNTechlabTrackModule"
+            ReferencedContainer = "container:RNTechlabTrackModule.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

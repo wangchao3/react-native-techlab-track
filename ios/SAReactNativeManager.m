@@ -106,7 +106,7 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
 - (void)setDynamicSuperProperties:(NSDictionary *)properties {
     if (!self.dynamicPropertyPlugin) {
         SAReactNativeDynamicPropertyPlugin *plugin = [[SAReactNativeDynamicPropertyPlugin alloc] init];
-        [SensorsAnalyticsSDK.sharedInstance registerPropertyPlugin:plugin];
+        [TechlabTrackSDK.sharedInstance registerPropertyPlugin:plugin];
         self.dynamicPropertyPlugin = plugin;
     }
     self.dynamicPropertyPlugin.properties = properties;
@@ -120,11 +120,11 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
 
 #pragma mark - AppClick
 - (void)trackViewClick:(NSNumber *)reactTag {
-    if (![[SensorsAnalyticsSDK sharedInstance] isAutoTrackEnabled]) {
+    if (![[TechlabTrackSDK sharedInstance] isAutoTrackEnabled]) {
         return;
     }
     // 忽略 $AppClick 事件
-    if ([[SensorsAnalyticsSDK sharedInstance] isAutoTrackEventTypeIgnored:SensorsAnalyticsEventTypeAppClick]) {
+    if ([[TechlabTrackSDK sharedInstance] isAutoTrackEventTypeIgnored:SensorsAnalyticsEventTypeAppClick]) {
         return;
     }
 
@@ -153,7 +153,7 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
         [properties addEntriesFromDictionary:screenProperties];
         [properties addEntriesFromDictionary:viewProperty.properties];
         NSDictionary *newProps = [SAReactNativeEventProperty eventProperties:properties isAuto:YES];
-        [[SensorsAnalyticsSDK sharedInstance] trackViewAppClick:view withProperties:newProps];
+        [[TechlabTrackSDK sharedInstance] trackViewAppClick:view withProperties:newProps];
     });
 }
 
@@ -180,12 +180,12 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
     }
 
     // 检查 SDK 全埋点功能开启状态
-    if (autoTrack && ![[SensorsAnalyticsSDK sharedInstance] isAutoTrackEnabled]) {
+    if (autoTrack && ![[TechlabTrackSDK sharedInstance] isAutoTrackEnabled]) {
         return;
     }
 
     // 忽略所有 $AppViewScreen 事件
-    if (autoTrack && [[SensorsAnalyticsSDK sharedInstance] isAutoTrackEventTypeIgnored:SensorsAnalyticsEventTypeAppViewScreen]) {
+    if (autoTrack && [[TechlabTrackSDK sharedInstance] isAutoTrackEventTypeIgnored:SensorsAnalyticsEventTypeAppViewScreen]) {
         return;
     }
 
@@ -197,7 +197,7 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         NSDictionary *properties = [SAReactNativeEventProperty eventProperties:eventProps isAuto:autoTrack];
-        [[SensorsAnalyticsSDK sharedInstance] trackViewScreen:url withProperties:properties];
+        [[TechlabTrackSDK sharedInstance] trackViewScreen:url withProperties:properties];
 #pragma clang diagnostic pop
     });
 }
@@ -262,7 +262,7 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [SensorsAnalyticsSDK startWithConfigOptions:options];
+        [TechlabTrackSDK startWithConfigOptions:options];
         [self addNativeIgnoreClasses];
     });
 }
@@ -272,7 +272,7 @@ NSString *const kSAEventElementContentProperty = @"$element_content";
         NSSet *nativeIgnoreClasses = [NSSet setWithObjects:@"RCTSwitch", @"RCTSlider", @"RCTSegmentedControl", @"RNGestureHandlerButton", @"RNCSlider", @"RNCSegmentedControl", nil];
         for (NSString *className in nativeIgnoreClasses) {
             if (NSClassFromString(className)) {
-                [[SensorsAnalyticsSDK sharedInstance] ignoreViewType:NSClassFromString(className)];
+                [[TechlabTrackSDK sharedInstance] ignoreViewType:NSClassFromString(className)];
             }
         }
     } @catch (NSException *exception) {

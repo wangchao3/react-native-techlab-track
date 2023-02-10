@@ -2,21 +2,21 @@
 #error This file must be compiled with ARC. Either turn on ARC for the project or use -fobjc-arc flag on this file.
 #endif
 
-#if __has_include(<SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>)
-#import <SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>
+#if __has_include(<TechlabTrackSDK/TechlabTrackSDK.h>)
+#import <TechlabTrackSDK/TechlabTrackSDK.h>
 #else
-#import "SensorsAnalyticsSDK.h"
+#import "TechlabTrackSDK.h"
 #endif
 
-#import "RNSensorsAnalyticsModule.h"
+#import "RNTechlabTrackModule.h"
 #import "SAReactNativeManager.h"
 #import "SAReactNativeEventProperty.h"
 
 NSString *const kSAReactNativePluginVersion = @"react_native:2.3.4";
 
-@implementation RNSensorsAnalyticsModule
+@implementation RNTechlabTrackModule
 
-RCT_EXPORT_MODULE(RNSensorsAnalyticsModule)
+RCT_EXPORT_MODULE(RNTechlabTrackModule)
 
 RCT_EXPORT_METHOD(init:(NSDictionary *)settings){
     @try {
@@ -36,14 +36,14 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)settings){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.track("RN_AddToFav",{"ProductID":123456,"UserLevel":"VIP"})}>
+ *            RNTechlabTrackModule.track("RN_AddToFav",{"ProductID":123456,"UserLevel":"VIP"})}>
  *     </Button>
  */
 
 RCT_EXPORT_METHOD(track:(NSString *)event withProperties:(NSDictionary *)propertyDict){
     @try {
         NSDictionary *properties = [SAReactNativeEventProperty eventProperties:propertyDict];
-        [[SensorsAnalyticsSDK sharedInstance] track:event withProperties:properties];
+        [[TechlabTrackSDK sharedInstance] track:event withProperties:properties];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -59,12 +59,12 @@ RCT_EXPORT_METHOD(track:(NSString *)event withProperties:(NSDictionary *)propert
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.trackTimerStart("viewTimer")}>
+ *            RNTechlabTrackModule.trackTimerStart("viewTimer")}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(trackTimerStart:(NSString *)event){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] trackTimerStart:event];
+        [[TechlabTrackSDK sharedInstance] trackTimerStart:event];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -79,13 +79,13 @@ RCT_EXPORT_METHOD(trackTimerStart:(NSString *)event){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.trackTimerEnd("viewTimer",{"ProductID":123456,"UserLevel":"VIP"})}>
+ *            RNTechlabTrackModule.trackTimerEnd("viewTimer",{"ProductID":123456,"UserLevel":"VIP"})}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(trackTimerEnd:(NSString *)event withProperties:(NSDictionary *)propertyDict){
     @try {
         NSDictionary *properties = [SAReactNativeEventProperty eventProperties:propertyDict];
-        [[SensorsAnalyticsSDK sharedInstance] trackTimerEnd:event withProperties:properties];
+        [[TechlabTrackSDK sharedInstance] trackTimerEnd:event withProperties:properties];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -99,12 +99,12 @@ RCT_EXPORT_METHOD(trackTimerEnd:(NSString *)event withProperties:(NSDictionary *
  *      <Button
  *                 title="Button"
  *                 onPress={()=>
- *                 RNSensorsAnalyticsModule.clearTrackTimer()}>
+ *                 RNTechlabTrackModule.clearTrackTimer()}>
  *      </Button>
  */
 RCT_EXPORT_METHOD(clearTrackTimer){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] clearTrackTimer];
+        [[TechlabTrackSDK sharedInstance] clearTrackTimer];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -129,12 +129,12 @@ RCT_EXPORT_METHOD(clearTrackTimer){
  *            this.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
  *            var currentTime =  this.year + "-" + this.month + "-" + this.date + " " + this.hour
  *                               + ":" + this.minute + ":" + this.second;
- *            RNSensorsAnalyticsModule.trackInstallation("AppInstall",{"FirstUseTime":currentTime})}>
+ *            RNTechlabTrackModule.trackInstallation("AppInstall",{"FirstUseTime":currentTime})}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(trackInstallation:(NSString *)event withProperties:(NSDictionary *)propertyDict){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] trackInstallation:event withProperties:propertyDict];
+        [[TechlabTrackSDK sharedInstance] trackInstallation:event withProperties:propertyDict];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -148,13 +148,13 @@ RCT_EXPORT_METHOD(trackInstallation:(NSString *)event withProperties:(NSDictiona
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.login("developer@sensorsdata.cn")}>
+ *            RNTechlabTrackModule.login("developer@sensorsdata.cn")}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(login:(NSString *)loginId){
     @try {
         NSDictionary *properties = [SAReactNativeEventProperty eventProperties:nil];
-        [[SensorsAnalyticsSDK sharedInstance] login:loginId withProperties:properties];
+        [[TechlabTrackSDK sharedInstance] login:loginId withProperties:properties];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -166,12 +166,12 @@ RCT_EXPORT_METHOD(login:(NSString *)loginId){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.logout()}>
+ *            RNTechlabTrackModule.logout()}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(logout){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] logout];
+        [[TechlabTrackSDK sharedInstance] logout];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -191,7 +191,7 @@ RCT_EXPORT_METHOD(logout){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.trackViewScreen(null,{"$title":"RN主页","$screen_name":"cn.sensorsdata.demo.RNHome"})}>
+ *            RNTechlabTrackModule.trackViewScreen(null,{"$title":"RN主页","$screen_name":"cn.sensorsdata.demo.RNHome"})}>
  *     </Button>
  *
  *
@@ -212,12 +212,12 @@ RCT_EXPORT_METHOD(trackViewScreen:(NSString *)url withProperties:(NSDictionary *
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.set({"sex":"男"})}>
+ *            RNTechlabTrackModule.set({"sex":"男"})}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(set:(NSDictionary *)profileDict){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] set:profileDict];
+        [[TechlabTrackSDK sharedInstance] set:profileDict];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -231,12 +231,12 @@ RCT_EXPORT_METHOD(set:(NSDictionary *)profileDict){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.profileSet({"sex":"男"})}>
+ *            RNTechlabTrackModule.profileSet({"sex":"男"})}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(profileSet:(NSDictionary *)profileDict){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] set:profileDict];
+        [[TechlabTrackSDK sharedInstance] set:profileDict];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -253,12 +253,12 @@ RCT_EXPORT_METHOD(profileSet:(NSDictionary *)profileDict){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.setOnce({"sex":"男"})}>
+ *            RNTechlabTrackModule.setOnce({"sex":"男"})}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(setOnce:(NSDictionary *)profileDict){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] setOnce:profileDict];
+        [[TechlabTrackSDK sharedInstance] setOnce:profileDict];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -275,12 +275,12 @@ RCT_EXPORT_METHOD(setOnce:(NSDictionary *)profileDict){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.profileSetOnce({"sex":"男"})}>
+ *            RNTechlabTrackModule.profileSetOnce({"sex":"男"})}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(profileSetOnce:(NSDictionary *)profileDict){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] setOnce:profileDict];
+        [[TechlabTrackSDK sharedInstance] setOnce:profileDict];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -296,12 +296,12 @@ RCT_EXPORT_METHOD(profileSetOnce:(NSDictionary *)profileDict){
  *                 <Button
  *                 title="Button"
  *                 onPress={()=>
- *                 RNSensorsAnalyticsModule.unset("sex")}>
+ *                 RNTechlabTrackModule.unset("sex")}>
  *                 </Button>
  */
 RCT_EXPORT_METHOD(unset:(NSString *) profile){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] unset:profile];
+        [[TechlabTrackSDK sharedInstance] unset:profile];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -318,12 +318,12 @@ RCT_EXPORT_METHOD(unset:(NSString *) profile){
  *                 <Button
  *                 title="Button"
  *                 onPress={()=>
- *                 RNSensorsAnalyticsModule.profileUnset("sex")}>
+ *                 RNTechlabTrackModule.profileUnset("sex")}>
  *                 </Button>
  */
 RCT_EXPORT_METHOD(profileUnset:(NSString *) profile){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] unset:profile];
+        [[TechlabTrackSDK sharedInstance] unset:profile];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -342,12 +342,12 @@ RCT_EXPORT_METHOD(profileUnset:(NSString *) profile){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.increment("money",10)}>
+ *            RNTechlabTrackModule.increment("money",10)}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(increment:(NSString *)profile by:(nonnull NSNumber *)amount){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] increment:profile by:amount];
+        [[TechlabTrackSDK sharedInstance] increment:profile by:amount];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -366,12 +366,12 @@ RCT_EXPORT_METHOD(increment:(NSString *)profile by:(nonnull NSNumber *)amount){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.profileIncrement("money",10)}>
+ *            RNTechlabTrackModule.profileIncrement("money",10)}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(profileIncrement:(NSString *)profile by:(nonnull NSNumber *)amount){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] increment:profile by:amount];
+        [[TechlabTrackSDK sharedInstance] increment:profile by:amount];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -389,13 +389,13 @@ RCT_EXPORT_METHOD(profileIncrement:(NSString *)profile by:(nonnull NSNumber *)am
  *                 title="Button"
  *                 onPress={()=>{
  *                   var list = ["Sicario","Love Letter"];
- *                   RNSensorsAnalyticsModule.append("Move",list);}>
+ *                   RNTechlabTrackModule.append("Move",list);}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(append:(NSString *)profile by:(NSArray *)content){
     @try {
         NSSet *setCntent = [NSSet setWithArray:content];
-        [[SensorsAnalyticsSDK sharedInstance] append:profile by:setCntent];
+        [[TechlabTrackSDK sharedInstance] append:profile by:setCntent];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -413,13 +413,13 @@ RCT_EXPORT_METHOD(append:(NSString *)profile by:(NSArray *)content){
  *                 title="Button"
  *                 onPress={()=>{
  *                   var list = ["Sicario","Love Letter"];
- *                   RNSensorsAnalyticsModule.profileAppend("Move",list);}>
+ *                   RNTechlabTrackModule.profileAppend("Move",list);}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(profileAppend:(NSString *)profile by:(NSArray *)content){
     @try {
         NSSet *setCntent = [NSSet setWithArray:content];
-        [[SensorsAnalyticsSDK sharedInstance] append:profile by:setCntent];
+        [[TechlabTrackSDK sharedInstance] append:profile by:setCntent];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -434,12 +434,12 @@ RCT_EXPORT_METHOD(profileAppend:(NSString *)profile by:(NSArray *)content){
  *      <Button
  *                title="Button"
  *                onPress={()=>
- *                RNSensorsAnalyticsModule.deleteUser()}>
+ *                RNTechlabTrackModule.deleteUser()}>
  *      </Button>
  */
 RCT_EXPORT_METHOD(deleteUser){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] deleteUser];
+        [[TechlabTrackSDK sharedInstance] deleteUser];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -454,12 +454,12 @@ RCT_EXPORT_METHOD(deleteUser){
  *      <Button
  *                title="Button"
  *                onPress={()=>
- *                RNSensorsAnalyticsModule.profileDelete()}>
+ *                RNTechlabTrackModule.profileDelete()}>
  *      </Button>
  */
 RCT_EXPORT_METHOD(profileDelete){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] deleteUser];
+        [[TechlabTrackSDK sharedInstance] deleteUser];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -476,12 +476,12 @@ RCT_EXPORT_METHOD(profileDelete){
  *      <Button
  *                title="Button"
  *                onPress={()=>
- *                RNSensorsAnalyticsModule.clearKeychainData()}>
+ *                RNTechlabTrackModule.clearKeychainData()}>
  *      </Button>
  */
 RCT_EXPORT_METHOD(clearKeychainData){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] clearKeychainData];
+        [[TechlabTrackSDK sharedInstance] clearKeychainData];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -493,17 +493,17 @@ RCT_EXPORT_METHOD(clearKeychainData){
  * 获取distinctId .
  * <p>
  * RN 中使用示例：
- * var distinctId = RNSensorsAnalyticsModule.getDistinctId();
+ * var distinctId = RNTechlabTrackModule.getDistinctId();
  */
 RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getDistinctId){
     @try {
-        NSString *bestId = [SensorsAnalyticsSDK sharedInstance].loginId;
+        NSString *bestId = [TechlabTrackSDK sharedInstance].loginId;
         if (bestId == nil) {
-            bestId = [SensorsAnalyticsSDK sharedInstance].distinctId;
+            bestId = [TechlabTrackSDK sharedInstance].distinctId;
         }
         if (bestId == nil) {
-            [[SensorsAnalyticsSDK sharedInstance] resetAnonymousId];
-            bestId = [SensorsAnalyticsSDK sharedInstance].anonymousId;
+            [[TechlabTrackSDK sharedInstance] resetAnonymousId];
+            bestId = [TechlabTrackSDK sharedInstance].anonymousId;
         }
         return bestId;
     } @catch (NSException *exception) {
@@ -520,18 +520,18 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getDistinctId){
  * <p>
  * RN 中使用示例：
  *    async  getDistinctIdPromise() {
- *       var distinctId = await RNSensorsAnalyticsModule.getDistinctIdPromise()
+ *       var distinctId = await RNTechlabTrackModule.getDistinctIdPromise()
  *    };
  */
 RCT_EXPORT_METHOD(getDistinctIdPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject){
     @try {
-        NSString *bestId = [SensorsAnalyticsSDK sharedInstance].loginId;
+        NSString *bestId = [TechlabTrackSDK sharedInstance].loginId;
         if (bestId == nil) {
-            bestId = [SensorsAnalyticsSDK sharedInstance].distinctId;
+            bestId = [TechlabTrackSDK sharedInstance].distinctId;
         }
         if (bestId == nil) {
-            [[SensorsAnalyticsSDK sharedInstance] resetAnonymousId];
-            bestId = [SensorsAnalyticsSDK sharedInstance].anonymousId;
+            [[TechlabTrackSDK sharedInstance] resetAnonymousId];
+            bestId = [TechlabTrackSDK sharedInstance].anonymousId;
         }
         resolve(bestId);
     } @catch (NSException *exception) {
@@ -546,12 +546,12 @@ RCT_EXPORT_METHOD(getDistinctIdPromise:(RCTPromiseResolveBlock)resolve reject:(R
  * <p>
  * RN 中使用示例：
  *    async  getAnonymousIdPromise() {
- *       var anonymousId = await RNSensorsAnalyticsModule.getAnonymousIdPromise()
+ *       var anonymousId = await RNTechlabTrackModule.getAnonymousIdPromise()
  *    };
  */
 RCT_EXPORT_METHOD(getAnonymousIdPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject){
     @try {
-        resolve([SensorsAnalyticsSDK sharedInstance].anonymousId);
+        resolve([TechlabTrackSDK sharedInstance].anonymousId);
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -566,12 +566,12 @@ RCT_EXPORT_METHOD(getAnonymousIdPromise:(RCTPromiseResolveBlock)resolve reject:(
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.registerSuperProperties({"Platform":"iOS"})}>
+ *            RNTechlabTrackModule.registerSuperProperties({"Platform":"iOS"})}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(registerSuperProperties:(NSDictionary *)properties){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] registerSuperProperties:properties];
+        [[TechlabTrackSDK sharedInstance] registerSuperProperties:properties];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -586,12 +586,12 @@ RCT_EXPORT_METHOD(registerSuperProperties:(NSDictionary *)properties){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.unregisterSuperProperty("Platform")}>
+ *            RNTechlabTrackModule.unregisterSuperProperty("Platform")}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(unregisterSuperProperty:(NSString *)property){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] unregisterSuperProperty:property];
+        [[TechlabTrackSDK sharedInstance] unregisterSuperProperty:property];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -605,12 +605,12 @@ RCT_EXPORT_METHOD(unregisterSuperProperty:(NSString *)property){
  *     <Button
  *            title="Button"
  *            onPress={()=>
- *            RNSensorsAnalyticsModule.clearSuperProperties()}>
+ *            RNTechlabTrackModule.clearSuperProperties()}>
  *     </Button>
  */
 RCT_EXPORT_METHOD(clearSuperProperties){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] clearSuperProperties];
+        [[TechlabTrackSDK sharedInstance] clearSuperProperties];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -624,12 +624,12 @@ RCT_EXPORT_METHOD(clearSuperProperties){
  *                   <Button
  *                   title="Button"
  *                   onPress={()=>
- *                   RNSensorsAnalyticsModule.flush()}>
+ *                   RNTechlabTrackModule.flush()}>
  *                   </Button>
  */
 RCT_EXPORT_METHOD(flush){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] flush];
+        [[TechlabTrackSDK sharedInstance] flush];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -643,12 +643,12 @@ RCT_EXPORT_METHOD(flush){
  *                   <Button
  *                   title="Button"
  *                   onPress={()=>
- *                   RNSensorsAnalyticsModule.deleteAll()}>
+ *                   RNTechlabTrackModule.deleteAll()}>
  *                   </Button>
  */
 RCT_EXPORT_METHOD(deleteAll){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] deleteAll];
+        [[TechlabTrackSDK sharedInstance] deleteAll];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -663,12 +663,12 @@ RCT_EXPORT_METHOD(deleteAll){
  *                   <Button
  *                   title="Button"
  *                   onPress={()=>
- *                   RNSensorsAnalyticsModule.identify("AAA")}>
+ *                   RNTechlabTrackModule.identify("AAA")}>
  *                   </Button>
 */
 RCT_EXPORT_METHOD(identify:(NSString *)anonymousId) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] identify:anonymousId];
+        [[TechlabTrackSDK sharedInstance] identify:anonymousId];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -685,12 +685,12 @@ RCT_EXPORT_METHOD(identify:(NSString *)anonymousId) {
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.trackTimerPause("event")}>
+ *  RNTechlabTrackModule.trackTimerPause("event")}>
  *  </Button>
 */
 RCT_EXPORT_METHOD(trackTimerPause:(NSString *)event){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] trackTimerPause:event];
+        [[TechlabTrackSDK sharedInstance] trackTimerPause:event];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -708,12 +708,12 @@ RCT_EXPORT_METHOD(trackTimerPause:(NSString *)event){
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.trackTimerResume("event")}>
+ *  RNTechlabTrackModule.trackTimerResume("event")}>
  *  </Button>
 */
 RCT_EXPORT_METHOD(trackTimerResume:(NSString *)event){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] trackTimerResume:event];
+        [[TechlabTrackSDK sharedInstance] trackTimerResume:event];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -734,12 +734,12 @@ RCT_EXPORT_METHOD(trackTimerResume:(NSString *)event){
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.profilePushId("pushTypeKey", "pushId")}>
+ *  RNTechlabTrackModule.profilePushId("pushTypeKey", "pushId")}>
  *  </Button>
 */
 RCT_EXPORT_METHOD(profilePushId:(NSString *)pushTypeKey pushId:(NSString *)pushId){
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] profilePushKey:pushTypeKey pushId:pushId];
+        [[TechlabTrackSDK sharedInstance] profilePushKey:pushTypeKey pushId:pushId];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -758,12 +758,12 @@ RCT_EXPORT_METHOD(profilePushId:(NSString *)pushTypeKey pushId:(NSString *)pushI
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.profileUnsetPushId("pushTypeKey")}>
+ *  RNTechlabTrackModule.profileUnsetPushId("pushTypeKey")}>
  *  </Button>
 */
 RCT_EXPORT_METHOD(profileUnsetPushId:(NSString *)pushTypeKey) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] profileUnsetPushKey:pushTypeKey];
+        [[TechlabTrackSDK sharedInstance] profileUnsetPushKey:pushTypeKey];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -777,12 +777,12 @@ RCT_EXPORT_METHOD(profileUnsetPushId:(NSString *)pushTypeKey) {
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.resetAnonymousId()}>
+ *  RNTechlabTrackModule.resetAnonymousId()}>
  *  </Button>
 */
 RCT_EXPORT_METHOD(resetAnonymousId) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] resetAnonymousId];
+        [[TechlabTrackSDK sharedInstance] resetAnonymousId];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -798,12 +798,12 @@ RCT_EXPORT_METHOD(resetAnonymousId) {
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.getSuperPropertiesPromise().then((value) => { // value 为获取到的公共属性  })}>
+ *  RNTechlabTrackModule.getSuperPropertiesPromise().then((value) => { // value 为获取到的公共属性  })}>
  *  </Button>
 */
 RCT_EXPORT_METHOD(getSuperPropertiesPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
     @try {
-        NSDictionary *superProperties = [[SensorsAnalyticsSDK sharedInstance] currentSuperProperties];
+        NSDictionary *superProperties = [[TechlabTrackSDK sharedInstance] currentSuperProperties];
         resolve(superProperties);
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
@@ -818,12 +818,12 @@ RCT_EXPORT_METHOD(getSuperPropertiesPromise:(RCTPromiseResolveBlock)resolve reje
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.setServerUrl("https://www.sensorsdata.cn") }>
+ *  RNTechlabTrackModule.setServerUrl("https://www.sensorsdata.cn") }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(setServerUrl:(NSString *)serverUrl) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] setServerUrl:serverUrl];
+        [[TechlabTrackSDK sharedInstance] setServerUrl:serverUrl];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -839,12 +839,12 @@ RCT_EXPORT_METHOD(setServerUrl:(NSString *)serverUrl) {
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.itemSet('itemType', 'itemId', { 'key' : 'value' }) }>
+ *  RNTechlabTrackModule.itemSet('itemType', 'itemId', { 'key' : 'value' }) }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(itemSet:(NSString *)itemType itemId:(NSString *)itemId properties:(nullable NSDictionary <NSString *, id> *)propertyDict) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] itemSetWithType:itemType itemId:itemId properties:propertyDict];
+        [[TechlabTrackSDK sharedInstance] itemSetWithType:itemType itemId:itemId properties:propertyDict];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -860,12 +860,12 @@ RCT_EXPORT_METHOD(itemSet:(NSString *)itemType itemId:(NSString *)itemId propert
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.itemDelete('itemType', 'itemId') }>
+ *  RNTechlabTrackModule.itemDelete('itemType', 'itemId') }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(itemDelete:(NSString *)itemType itemId:(NSString *)itemId) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] itemDeleteWithType:itemType itemId:itemId];
+        [[TechlabTrackSDK sharedInstance] itemDeleteWithType:itemType itemId:itemId];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -881,12 +881,12 @@ RCT_EXPORT_METHOD(itemDelete:(NSString *)itemType itemId:(NSString *)itemId) {
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.getPresetPropertiesPromise().then((value) => { // value 为获取到的预置属性  }) }>
+ *  RNTechlabTrackModule.getPresetPropertiesPromise().then((value) => { // value 为获取到的预置属性  }) }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(getPresetPropertiesPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
     @try {
-        NSDictionary *presetProperties = [[SensorsAnalyticsSDK sharedInstance] getPresetProperties];
+        NSDictionary *presetProperties = [[TechlabTrackSDK sharedInstance] getPresetProperties];
         resolve(presetProperties);
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
@@ -907,12 +907,12 @@ RCT_EXPORT_METHOD(getPresetPropertiesPromise:(RCTPromiseResolveBlock)resolve rej
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.setFlushNetworkPolicy( 20 ) }>
+ *  RNTechlabTrackModule.setFlushNetworkPolicy( 20 ) }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(setFlushNetworkPolicy:(NSInteger)networkType) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] setFlushNetworkPolicy:networkType];
+        [[TechlabTrackSDK sharedInstance] setFlushNetworkPolicy:networkType];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -926,12 +926,12 @@ RCT_EXPORT_METHOD(setFlushNetworkPolicy:(NSInteger)networkType) {
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.getLoginIdPromise().then((value) => { // value 为获取到的登录 ID  }) }>
+ *  RNTechlabTrackModule.getLoginIdPromise().then((value) => { // value 为获取到的登录 ID  }) }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(getLoginIdPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
     @try {
-        resolve([[SensorsAnalyticsSDK sharedInstance] loginId]);
+        resolve([[TechlabTrackSDK sharedInstance] loginId]);
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -947,12 +947,12 @@ RCT_EXPORT_METHOD(getLoginIdPromise:(RCTPromiseResolveBlock)resolve reject:(RCTP
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.isAutoTrackEnabledPromise().then((value) => { // value 为获取到的全埋点开启状态  }) }>
+ *  RNTechlabTrackModule.isAutoTrackEnabledPromise().then((value) => { // value 为获取到的全埋点开启状态  }) }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(isAutoTrackEnabledPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
     @try {
-        resolve(@([[SensorsAnalyticsSDK sharedInstance] isAutoTrackEnabled]));
+        resolve(@([[TechlabTrackSDK sharedInstance] isAutoTrackEnabled]));
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -967,12 +967,12 @@ RCT_EXPORT_METHOD(isAutoTrackEnabledPromise:(RCTPromiseResolveBlock)resolve reje
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.isVisualizedAutoTrackEnabledPromise().then((value) => { // value 为获取到的可视化埋点开启状态  }) }>
+ *  RNTechlabTrackModule.isVisualizedAutoTrackEnabledPromise().then((value) => { // value 为获取到的可视化埋点开启状态  }) }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(isVisualizedAutoTrackEnabledPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
     @try {
-        resolve(@([[SensorsAnalyticsSDK sharedInstance] isVisualizedAutoTrackEnabled]));
+        resolve(@([[TechlabTrackSDK sharedInstance] isVisualizedAutoTrackEnabled]));
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -987,12 +987,12 @@ RCT_EXPORT_METHOD(isVisualizedAutoTrackEnabledPromise:(RCTPromiseResolveBlock)re
  *  <Button
  *  title="Button"
  *  onPress={()=>
- *  RNSensorsAnalyticsModule.isHeatMapEnabledPromise().then((value) => { // value 为获取到的热力图开启状态  }) }>
+ *  RNTechlabTrackModule.isHeatMapEnabledPromise().then((value) => { // value 为获取到的热力图开启状态  }) }>
  *  </Button>
 */
 RCT_EXPORT_METHOD(isHeatMapEnabledPromise:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject) {
     @try {
-        resolve(@([[SensorsAnalyticsSDK sharedInstance] isHeatMapEnabled]));
+        resolve(@([[TechlabTrackSDK sharedInstance] isHeatMapEnabled]));
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -1005,7 +1005,7 @@ RCT_EXPORT_METHOD(isHeatMapEnabledPromise:(RCTPromiseResolveBlock)resolve reject
 */
 RCT_EXPORT_METHOD(trackAppInstall:(NSDictionary *)property) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] trackInstallation:@"$AppInstall" withProperties:property];
+        [[TechlabTrackSDK sharedInstance] trackInstallation:@"$AppInstall" withProperties:property];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -1019,7 +1019,7 @@ RCT_EXPORT_METHOD(trackAppInstall:(NSDictionary *)property) {
  */
 RCT_EXPORT_METHOD(bind:(NSString *)key value:(NSString *)value) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] bind:key value:value];
+        [[TechlabTrackSDK sharedInstance] bind:key value:value];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }
@@ -1033,7 +1033,7 @@ RCT_EXPORT_METHOD(bind:(NSString *)key value:(NSString *)value) {
  */
 RCT_EXPORT_METHOD(unbind:(NSString *)key value:(NSString *)value) {
     @try {
-        [[SensorsAnalyticsSDK sharedInstance] unbind:key value:value];
+        [[TechlabTrackSDK sharedInstance] unbind:key value:value];
     } @catch (NSException *exception) {
         NSLog(@"[RNSensorsAnalytics] error:%@",exception);
     }

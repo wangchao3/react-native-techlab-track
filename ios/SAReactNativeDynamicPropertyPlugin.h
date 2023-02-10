@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#if __has_include(<SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>)
-#import <SensorsAnalyticsSDK/SensorsAnalyticsSDK.h>
+#if __has_include(<TechlabTrackSDK/TechlabTrackSDK.h>)
+#import <TechlabTrackSDK/TechlabTrackSDK.h>
 #else
-#import "SensorsAnalyticsSDK.h"
+#import "TechlabTrackSDK.h"
 #endif
 
 NS_ASSUME_NONNULL_BEGIN

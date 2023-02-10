@@ -3,7 +3,7 @@
 #endif
 
 #import "SAReactNativeEventProperty.h"
-#import "RNSensorsAnalyticsModule.h"
+#import "RNTechlabTrackModule.h"
 
 NSString *const kSALibPluginVersionKey = @"$lib_plugin_version";
 

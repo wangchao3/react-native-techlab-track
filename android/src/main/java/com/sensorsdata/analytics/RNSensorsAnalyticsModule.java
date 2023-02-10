@@ -39,13 +39,13 @@ import java.util.HashSet;
  * ReadableArray -> Array
  */
 
-public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
+public class RNTechlabTrackModule extends ReactContextBaseJavaModule {
 
-    public RNSensorsAnalyticsModule(ReactApplicationContext reactContext) {
+    public RNTechlabTrackModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
 
-    private static final String MODULE_NAME = "RNSensorsAnalyticsModule";
+    private static final String MODULE_NAME = "RNTechlabTrackModule";
     private static final String LOGTAG = "SA.RN";
 
     /**
@@ -77,7 +77,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.track("RN_AddToFav",{"ProductID":123456,"UserLevel":"VIP"})}>
+     * RNTechlabTrackModule.track("RN_AddToFav",{"ProductID":123456,"UserLevel":"VIP"})}>
      * </Button>
      */
     @ReactMethod
@@ -101,7 +101,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.trackTimerStart("viewTimer")}>
+     * RNTechlabTrackModule.trackTimerStart("viewTimer")}>
      * </Button>
      */
     @ReactMethod
@@ -125,7 +125,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.trackTimerEnd("viewTimer",{"ProductID":123456,"UserLevel":"VIP"})}>
+     * RNTechlabTrackModule.trackTimerEnd("viewTimer",{"ProductID":123456,"UserLevel":"VIP"})}>
      * </Button>
      */
     @ReactMethod
@@ -147,7 +147,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.clearTrackTimer()}>
+     * RNTechlabTrackModule.clearTrackTimer()}>
      * </Button>
      */
     @ReactMethod
@@ -168,7 +168,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.login("developer@sensorsdata.cn")}>
+     * RNTechlabTrackModule.login("developer@sensorsdata.cn")}>
      * </Button>
      */
     @ReactMethod
@@ -188,7 +188,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.logout()}>
+     * RNTechlabTrackModule.logout()}>
      * </Button>
      */
     @ReactMethod
@@ -213,7 +213,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.trackInstallation("AppInstall",{"$utm_source":"渠道A","$utm_campaign":"广告A"})}>
+     * RNTechlabTrackModule.trackInstallation("AppInstall",{"$utm_source":"渠道A","$utm_campaign":"广告A"})}>
      * </Button>
      */
     @ReactMethod
@@ -241,7 +241,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.trackViewScreen(url, {"$title":"RN主页","$screen_name":"cn.sensorsdata.demo.RNHome"})}>
+     * RNTechlabTrackModule.trackViewScreen(url, {"$title":"RN主页","$screen_name":"cn.sensorsdata.demo.RNHome"})}>
      * </Button>
      */
     @ReactMethod
@@ -263,7 +263,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.profileSet({"sex":"男"})}>
+     * RNTechlabTrackModule.profileSet({"sex":"男"})}>
      * </Button>
      */
     @ReactMethod
@@ -288,7 +288,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.profileSetOnce({"sex":"男"})}>
+     * RNTechlabTrackModule.profileSetOnce({"sex":"男"})}>
      * </Button>
      */
     @ReactMethod
@@ -315,7 +315,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.profileIncrement("money",10)}>
+     * RNTechlabTrackModule.profileIncrement("money",10)}>
      * </Button>
      */
     @ReactMethod
@@ -340,7 +340,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.profileAppend("VIP",["Gold","Diamond"])}>
+     * RNTechlabTrackModule.profileAppend("VIP",["Gold","Diamond"])}>
      * </Button>
      */
     @ReactMethod
@@ -368,7 +368,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.profileUnset("sex")}>
+     * RNTechlabTrackModule.profileUnset("sex")}>
      * </Button>
      */
     @ReactMethod
@@ -390,7 +390,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.profileDelete()}>
+     * RNTechlabTrackModule.profileDelete()}>
      * </Button>
      */
     @ReactMethod
@@ -414,7 +414,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.getDistinctId(success=>{
+     * RNTechlabTrackModule.getDistinctId(success=>{
      * console.log(success)
      * },
      * error=>{
@@ -446,7 +446,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <p>
      * RN 中使用示例：
      * async  getDistinctIdPromise() {
-     * var distinctId = await RNSensorsAnalyticsModule.getDistinctIdPromise()
+     * var distinctId = await RNTechlabTrackModule.getDistinctIdPromise()
      * };
      */
     @ReactMethod
@@ -475,7 +475,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <p>
      * RN 中使用示例：
      * async  getAnonymousIdPromise() {
-     * var anonymousId = await RNSensorsAnalyticsModule.getAnonymousIdPromise()
+     * var anonymousId = await RNTechlabTrackModule.getAnonymousIdPromise()
      * };
      */
     @ReactMethod
@@ -501,7 +501,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.registerSuperProperties({"Platform":"Android"})}>
+     * RNTechlabTrackModule.registerSuperProperties({"Platform":"Android"})}>
      * </Button>
      */
     @ReactMethod
@@ -523,7 +523,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.unregisterSuperProperty("Platform")}>
+     * RNTechlabTrackModule.unregisterSuperProperty("Platform")}>
      * </Button>
      */
     @ReactMethod
@@ -543,7 +543,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.clearSuperProperties()}>
+     * RNTechlabTrackModule.clearSuperProperties()}>
      * </Button>
      */
     @ReactMethod
@@ -563,7 +563,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.flush()}>
+     * RNTechlabTrackModule.flush()}>
      * </Button>
      */
     @ReactMethod
@@ -583,7 +583,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <Button
      * title="Button"
      * onPress={()=>
-     * RNSensorsAnalyticsModule.deleteAll()}>
+     * RNTechlabTrackModule.deleteAll()}>
      * </Button>
      */
     @ReactMethod
@@ -601,7 +601,7 @@ public class RNSensorsAnalyticsModule extends ReactContextBaseJavaModule {
      * <p>
      * RN 中使用示例：
      * <Button title="Button" onPress={()=>
-     * RNSensorsAnalyticsModule.identify(anonymousId)}>
+     * RNTechlabTrackModule.identify(anonymousId)}>
      * </Button>
      */
     @ReactMethod
